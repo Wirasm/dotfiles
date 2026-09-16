@@ -7,10 +7,21 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": true,
+    "anthropic_retention": true
+  },
   "cli_default_open_behavior": "existing_window",
   "outline_panel": {},
   "collaboration_panel": {},
   "agent": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-fable-5",
+      "enable_thinking": true,
+      "effort": "high"
+    },
     "favorite_models": [],
     "model_parameters": []
   },
@@ -23,6 +34,9 @@
   "icon_theme": "Catppuccin Latte",
   "ui_font_size": 17,
   "buffer_font_size": 20,
+  // Agent panel: responses follow ui_font_size, but user messages ship at a
+  // fixed 12 regardless of buffer_font_size, so they need their own bump.
+  "agent_buffer_font_size": 16,
   "theme": "One Dark Pro",
   "project_panel": {
     "git_status": true,
