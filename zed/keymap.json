@@ -7,5 +7,18 @@
         "\u001b\r"
       ]
     }
+  },
+  {
+    // Replaces the default markdown::OpenPreview, which pins the preview to the
+    // file it was opened from. The following preview tracks the active markdown
+    // editor instead. cmd-k v still opens a pinned preview to the side.
+    //
+    // Context is "Editor", not the default's "Editor && extension == md": an
+    // unsaved buffer has no file and therefore no extension, so the default
+    // binding never fires there. On a non-markdown buffer the action no-ops.
+    "context": "Editor",
+    "bindings": {
+      "cmd-shift-v": "markdown::OpenFollowingPreview"
+    }
   }
 ]
