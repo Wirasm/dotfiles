@@ -1,0 +1,24 @@
+#!/bin/sh
+# Link the configs in this repo into place. Safe to re-run.
+set -e
+
+repo=$(cd "$(dirname "$0")" && pwd)
+
+link() {
+    src="$repo/$1"
+    dest="$2"
+    mkdir -p "$(dirname "$dest")"
+    if [ -L "$dest" ] && [ "$(readlink "$dest")" = "$src" ]; then
+        echo "ok      $dest"
+        return
+    fi
+    if [ -e "$dest" ] || [ -L "$dest" ]; then
+        mv "$dest" "$dest.bak"
+        echo "backup  $dest -> $dest.bak"
+    fi
+    ln -s "$src" "$dest"
+    echo "linked  $dest"
+}
+
+link zed/settings.json "$HOME/.config/zed/settings.json"
+link zed/keymap.json "$HOME/.config/zed/keymap.json"

@@ -1,0 +1,151 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "cli_default_open_behavior": "existing_window",
+  "outline_panel": {},
+  "collaboration_panel": {},
+  "agent": {
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "git_panel": {},
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry"
+    }
+  },
+  "icon_theme": "Catppuccin Latte",
+  "ui_font_size": 17,
+  "buffer_font_size": 20,
+  "theme": "One Dark Pro",
+  "project_panel": {
+    "git_status": true,
+    "dock": "left",
+    "default_width": 260
+  },
+  "experimental.theme_overrides": {
+    "git.created": "#666666", // Make new files gray instead of green
+    "git.modified": "#d19a66", // Orange for modified
+    "git.deleted": "#e06c75", // Red for deleted
+    "git.untracked": "#666666", // Gray for untracked
+    // See-through window. background.appearance makes the window itself
+    // transparent; every layer painted on top needs its own alpha, and those
+    // alphas stack, so the workspace background is fully clear and each
+    // surface carries the opacity on its own.
+    "background.appearance": "transparent",
+    "background": "#00000000",
+    "editor.background": "#282c34b3",
+    "editor.gutter.background": "#282c34b3",
+    "toolbar.background": "#282c34b3",
+    "terminal.background": "#00000000",
+    "terminal.ansi.background": "#00000000",
+    "panel.background": "#00000000",
+    "surface.background": "#21252bd9",
+    "elevated_surface.background": "#21252bf2",
+    "tab_bar.background": "#21252bd9",
+    "title_bar.background": "#21252bd9",
+    "status_bar.background": "#21252bd9",
+    // Lift the editor text off the now-translucent background.
+    // One Dark Pro ships #abb2bf for both of these.
+    "editor.foreground": "#d3d9e3",
+    "syntax": {
+      "punctuation": { "color": "#d3d9e3" }
+    }
+  },
+  // Reduce opacity of inactive panels for depth
+  "inactive_pane_opacity": 0.85,
+  // Auto-install extensions
+  "auto_install_extensions": {
+    "ruff": true
+  },
+
+  // Editor enhancements
+  "relative_line_numbers": "disabled",
+  "cursor_blink": false,
+  "show_trailing_whitespaces": true,
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+  "format_on_save": "on",
+  "autosave": "off",
+  "confirm_quit": true,
+  // Git integration
+  "git": {
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+  // Language-specific settings for Python
+  "languages": {
+    "Python": {
+      // Use Ruff as the language server
+      "language_servers": ["pyright", "ruff"],
+      "format_on_save": "on",
+      "formatter": [
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ],
+      "tab_size": 4,
+      "preferred_line_length": 100,
+      "show_whitespaces": "boundary"
+    }
+  },
+  // Debugger settings
+  "debugger": {
+    "dock": "bottom",
+    "stepping_granularity": "line",
+    "save_breakpoints": true,
+    "show_button": true,
+    "timeout": 2000
+  },
+
+  // Configure Ruff language server
+  "lsp": {
+    "pyright": {
+      "initialization_options": {
+        "python": {
+          "analysis": {
+            "typeCheckingMode": "strict",
+            "autoSearchPaths": true,
+            "useLibraryCodeForTypes": true
+          }
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lineLength": 100,
+          "lint": {
+            "select": ["E", "F", "I"],
+            "extendSelect": ["B", "C90", "UP", "RUF"]
+          },
+          // Add format settings
+          "format": {
+            "preview": true
+          }
+        }
+      }
+    }
+  },
+
+  // Terminal settings for UV virtual environment detection
+  "terminal": {
+    "font_size": 17,
+    "line_height": "comfortable",
+    "detect_venv": {
+      "on": {
+        "directories": [".venv", "venv"],
+        "activate_script": "default"
+      }
+    }
+  }
+}
