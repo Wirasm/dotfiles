@@ -27,3 +27,6 @@ link zed/keymap.json "$HOME/.config/zed/keymap.json"
 link agents/AGENTS.md "$HOME/.config/zed/AGENTS.md"
 link agents/AGENTS.md "$HOME/.codex/AGENTS.md"
 link agents/AGENTS.md "$HOME/.pi/agent/AGENTS.md"
+
+# Claude Code reads its own file, kept deliberately separate from AGENTS.md.
+link claude/CLAUDE.md "$HOME/.claude/CLAUDE.md"

@@ -10,6 +10,7 @@ through symlinks, so editing either side edits the same file.
 | `zed/settings.json` | `~/.config/zed/settings.json` |
 | `zed/keymap.json` | `~/.config/zed/keymap.json` |
 | `agents/AGENTS.md` | `~/.config/zed/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.pi/agent/AGENTS.md` |
+| `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` |
 
 ## Setup on a new machine
 
@@ -27,8 +28,9 @@ and is safe to re-run.
 Zed's agent reads it from `~/.config/zed/AGENTS.md`, Codex and pi from their own
 paths. Edit it once, every agent sees the change.
 
-Claude Code is the exception: it reads `~/.claude/CLAUDE.md`, which is a separate
-file and not linked here.
+Claude Code reads `claude/CLAUDE.md` instead, on purpose. The two files started
+from the same text and are meant to drift: AGENTS.md stays tool-agnostic, CLAUDE.md
+can carry Claude Code specifics. Edit one and the other does not change.
 
 ## Note on Zed
 
