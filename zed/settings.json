@@ -36,7 +36,8 @@
   "buffer_font_size": 20,
   // Agent panel: responses follow ui_font_size, but user messages ship at a
   // fixed 12 regardless of buffer_font_size, so they need their own bump.
-  "agent_buffer_font_size": 16,
+  "agent_buffer_font_size": 18,
+  "agent_ui_font_size": 19,
   "theme": "One Dark Pro",
   "project_panel": {
     "git_status": true,
