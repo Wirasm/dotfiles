@@ -22,3 +22,8 @@ link() {
 
 link zed/settings.json "$HOME/.config/zed/settings.json"
 link zed/keymap.json "$HOME/.config/zed/keymap.json"
+
+# One set of global agent rules, read by Zed's agent, Codex and pi.
+link agents/AGENTS.md "$HOME/.config/zed/AGENTS.md"
+link agents/AGENTS.md "$HOME/.codex/AGENTS.md"
+link agents/AGENTS.md "$HOME/.pi/agent/AGENTS.md"

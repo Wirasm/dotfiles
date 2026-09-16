@@ -9,6 +9,7 @@ through symlinks, so editing either side edits the same file.
 |------|----------|
 | `zed/settings.json` | `~/.config/zed/settings.json` |
 | `zed/keymap.json` | `~/.config/zed/keymap.json` |
+| `agents/AGENTS.md` | `~/.config/zed/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.pi/agent/AGENTS.md` |
 
 ## Setup on a new machine
 
@@ -19,6 +20,15 @@ git clone <this repo> ~/Projects/mine/dotfiles
 
 `install.sh` backs up anything already in place to `<file>.bak` before linking,
 and is safe to re-run.
+
+## Global agent rules
+
+`agents/AGENTS.md` is the single source of truth for how agents should work with me.
+Zed's agent reads it from `~/.config/zed/AGENTS.md`, Codex and pi from their own
+paths. Edit it once, every agent sees the change.
+
+Claude Code is the exception: it reads `~/.claude/CLAUDE.md`, which is a separate
+file and not linked here.
 
 ## Note on Zed
 
