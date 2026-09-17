@@ -60,7 +60,10 @@
     "toolbar.background": "#282c34cc",
     "terminal.background": "#00000000",
     "terminal.ansi.background": "#00000000",
-    "panel.background": "#00000000",
+    // Docks paint this and nothing else, so the project panel is only as
+    // readable as this value. It also sits under the terminal, which adds
+    // editor.background on top, so a solid panel makes the terminal opaque.
+    "panel.background": "#21252bf0",
     "surface.background": "#21252be6",
     "elevated_surface.background": "#21252bf2",
     "tab_bar.background": "#21252be6",
