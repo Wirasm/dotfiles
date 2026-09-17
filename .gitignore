@@ -1,2 +1,9 @@
 .DS_Store
 *.bak
+
+# Zed drops runtime state (conversations, prompt db, backups) into its config
+# dir, which is this directory. Track only the files we actually configure.
+zed/*
+!zed/settings.json
+!zed/keymap.json
+!zed/AGENTS.md

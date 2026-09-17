@@ -7,8 +7,7 @@ through symlinks, so editing either side edits the same file.
 
 | Path | Links to |
 |------|----------|
-| `zed/settings.json` | `~/.config/zed/settings.json` |
-| `zed/keymap.json` | `~/.config/zed/keymap.json` |
+| `zed/` (whole dir) | `~/.config/zed` |
 | `agents/AGENTS.md` | `~/.config/zed/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.pi/agent/AGENTS.md` |
 | `claude/CLAUDE.md` | `~/.claude/CLAUDE.md` |
 
@@ -34,6 +33,16 @@ can carry Claude Code specifics. Edit one and the other does not change.
 
 ## Note on Zed
 
+The whole `zed/` directory is linked as `~/.config/zed`, not the individual files
+inside it. This matters: Zed watches its config directory for changes, and an
+edit to a symlinked file sitting in a real directory fires no event there, so
+settings silently stop reloading until Zed restarts. Linking the directory keeps
+live reload working. Zed's own test suite covers exactly this shape.
+
+Because the directory is Zed's, Zed writes its runtime state into it as well:
+`conversations/`, `prompts/`, `themes/`, backups. `.gitignore` tracks only the
+files we configure and ignores the rest.
+
 Zed canonicalizes the settings path before saving, so changes made from Zed's UI
-write through the symlink to the file in this repo instead of replacing the link.
-Settings edited in the app show up here as normal git changes.
+write through to the file in this repo. Settings edited in the app show up here
+as normal git changes.

@@ -20,11 +20,13 @@ link() {
     echo "linked  $dest"
 }
 
-link zed/settings.json "$HOME/.config/zed/settings.json"
-link zed/keymap.json "$HOME/.config/zed/keymap.json"
+# The whole config dir, not the files inside it: Zed watches ~/.config/zed for
+# changes, and an edit to a symlinked file inside a real dir fires no event
+# there, so live reload silently stops working. zed/AGENTS.md is a relative
+# link to agents/AGENTS.md, so Zed's personal instructions come along with it.
+link zed "$HOME/.config/zed"
 
-# One set of global agent rules, read by Zed's agent, Codex and pi.
-link agents/AGENTS.md "$HOME/.config/zed/AGENTS.md"
+# The same global agent rules for the other tools.
 link agents/AGENTS.md "$HOME/.codex/AGENTS.md"
 link agents/AGENTS.md "$HOME/.pi/agent/AGENTS.md"
 
